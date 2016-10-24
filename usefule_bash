@@ -1,0 +1,11 @@
+#this will run the program, redirect the error and output to file and will not comes out if the bash screen is closed
+nohup mpirun -np 4 ./titan > foo.out 2> foo.err < /dev/null &
+
+#simple bash for loops to extract some file from a direc., rename and copy it to another direc.
+for i in `seq 0 63`; do   for j in `seq 0 7`;    do      a=func_var_000$j;      a+=_$i;     cp sample$i/func_var_000$j result/$a;      done; done
+
+#to see the directories in a direc.
+ls -d */
+
+#killing jobs by name
+pkill -f my_pattern
