@@ -9,3 +9,12 @@ ls -d */
 
 #killing jobs by name
 pkill -f my_pattern
+
+# to print the remote branches in git sorted by date
+for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r
+
+###Put the following lines in your ~/.inputrc
+## arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
