@@ -21,3 +21,11 @@ for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci 
 
 # lists and sort recursively all files in a directory
 find -printf "%TY-%Tm-%Td %TT %p\n" | sort -n
+
+# Changing login screen wallpaper in ubuntu
+sudo -i
+xhost +SI:localuser:lightdm
+su lightdm -s /bin/bash
+gsettings set com.canonical.unity-greeter draw-user-backgrounds 'true'
+gsettings set com.canonical.unity-greeter background 'path-to-image'
+exit
