@@ -29,3 +29,6 @@ su lightdm -s /bin/bash
 gsettings set com.canonical.unity-greeter draw-user-backgrounds 'true'
 gsettings set com.canonical.unity-greeter background 'path-to-image'
 exit
+
+#disk usage and sorting based on size
+du --max-depth=1 /path/to/directory | sort -n -r
