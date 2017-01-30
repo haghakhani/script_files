@@ -32,3 +32,6 @@ exit
 
 #disk usage and sorting based on size
 du --max-depth=1 /path/to/directory | sort -n -r
+
+#syncing two folder if the server information has been set in /.ssh/config
+rsync -avzhe "ssh -p 8704" dgea/example/ dom:~/dgea/example
