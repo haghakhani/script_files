@@ -35,3 +35,6 @@ du --max-depth=1 /path/to/directory | sort -n -r
 
 #syncing two folder if the server information has been set in /.ssh/config
 rsync -avzhe "ssh -p 8704" dgea/example/ dom:~/dgea/example
+
+#Replace a String in Multiple Files in Linux Using Grep and Sed
+grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
