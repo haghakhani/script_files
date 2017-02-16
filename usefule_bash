@@ -38,3 +38,6 @@ rsync -avzhe "ssh -p 8704" dgea/example/ dom:~/dgea/example
 
 #Replace a String in Multiple Files in Linux Using Grep and Sed
 grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
+
+#number of lines of .c and .h files in a director sorted ascending
+find . -name '*.h' -o -name '*.c' | xargs wc -l|sort -n
