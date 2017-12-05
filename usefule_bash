@@ -65,3 +65,8 @@ UNDERLINE='\033[4m'
 echo -e "This text is ${RED}red${NONE} and ${GREEN}green${NONE} and ${BOLD}bold${NONE} and ${UNDERLINE}underlined${NONE}."
 
 tput sgr0
+
+# handy aliases for git to got the next and previous commits. Need to be added to .git/config
+[alias]
+    prev = checkout HEAD^1
+    next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
