@@ -70,3 +70,6 @@ tput sgr0
 [alias]
     prev = checkout HEAD^1
     next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+
+#usefule command to search myfile for an expression and print the next line after the expression
+awk '/EXPRESSION/{getline; print}' MYFILE
