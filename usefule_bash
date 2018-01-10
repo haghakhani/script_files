@@ -73,3 +73,5 @@ tput sgr0
 
 #usefule command to search myfile for an expression and print the next line after the expression
 awk '/EXPRESSION/{getline; print}' MYFILE
+
+wget --accept pdf,jpg --mirror --page-requisites --adjust-extension --convert-links --backup-converted --no-parent http://site/path/
