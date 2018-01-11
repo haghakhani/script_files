@@ -74,4 +74,14 @@ tput sgr0
 #usefule command to search myfile for an expression and print the next line after the expression
 awk '/EXPRESSION/{getline; print}' MYFILE
 
+# to download especific file type from a website
 wget --accept pdf,jpg --mirror --page-requisites --adjust-extension --convert-links --backup-converted --no-parent http://site/path/
+
+# to see where is the home of tex 
+kpsewhich -var-value TEXMFHOME
+
+# to see where a pckage has been install
+kpsewhich <package.sty>
+
+
+
