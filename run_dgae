@@ -1,0 +1,21 @@
+#run inverse problem
+./dgea_uqbox -n 10 -c 20 -O 1. -t 1 -b 1 -a 2 -M data --target_anomaly target_l2 -l 2 -T 4. -S 10 -f 1. --set-synthesize-data -C .25 --final-map-filename map1_0_l2 --resv_rows 33 --misfit_cost_factor 1.e8
+
+./dgea_uqbox\
+-n 10 \ newton iterations
+-c 20 \ CG iterations
+-O 1. \ number of fourier modes
+-t 1 \ anisotropy regularization 
+-b 1 \ betha regularization
+-a 2 \ alpha regularization
+-M data\ materila model, with data you should provide target anomaly
+--target_anomaly target_l2 \ provided target anomaly
+-l 2 \ level refinement 
+-T 4. \ maximum time
+-S 10 \ number of time steps between VTK output
+-f 1. \ frequency
+--set-synthesize-data \ synthesize data
+-C .25 \ CFL number
+--final-map-filename map1_0_l2 \ name of final map file
+--resv_rows 33 \ number of receiver rows and columns
+--misfit_cost_factor 1.e8\ this is to magnify the effect of receiver
