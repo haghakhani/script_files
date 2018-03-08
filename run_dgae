@@ -1,6 +1,4 @@
-#run inverse problem
-./dgea_uqbox -n 10 -c 20 -O 1. -t 1 -b 1 -a 2 -M data --target_anomaly target_l2 -l 2 -T 4. -S 10 -f 1. --set-synthesize-data -C .25 --final-map-filename map1_0_l2 --resv_rows 33 --misfit_cost_factor 1.e8
-
+#parameters
 ./dgea_uqbox\
 -n 10 \ newton iterations
 -c 20 \ CG iterations
@@ -18,4 +16,23 @@
 -C .25 \ CFL number
 --final-map-filename map1_0_l2 \ name of final map file
 --resv_rows 33 \ number of receiver rows and columns
---misfit_cost_factor 1.e8\ this is to magnify the effect of receiver
+--misfit_cost_factor 1.e8 \ this is to magnify the effect of receiver
+--multiscale_target 1 \ for generating higher/lower level map/target 1 is for caorsening and 2 is for refining
+--set-disable-wave-solve \ to disable wave equation solver
+--sample-file-prefix prior \ prefix (file/directory) of the samples
+-r 5 \ number of samples
+--matvec-file-prefix matvec \ prefix (file/directory) to add to matvec samples names
+--random_matvec_offset 0 \ offset in numbering of the generated matvecs
+--random_matvec_count 100 \ number of matvec samples
+
+# run inverse problem
+./dgea_uqbox -n 10 -c 20 -O 1. -t 1 -b 1 -a 2 -M data --target_anomaly target_l2 -l 2 -T 4. -S 10 -f 1. --set-synthesize-data -C .25 --final-map-filename map1_0_l2 --resv_rows 33 --misfit_cost_factor 1.e8
+
+# generating higher/lower level map/anomaly
+./dgea_uqbox --multiscale_target 1 -t 1 -b .01 -a .1 -M data --target_anomaly target_anomaly_level_2  -l 2 --set-disable-wave-solve
+
+# create prior/posterior samples
+./dgea_uqbox  -t 1 -b .01 -a .1 -M sphere -l 6 --set-disable-wave-solve  --sample-file-prefix prior -r 5
+
+# to generate matvec vectors
+./dgea_uqbox -l4 -M data --target_anomaly target_anom -T 4 -C 0.25 --initial-map-filename map1_4 --set-synthesize-data --matvec-file-prefix matvec --random_matvec_offset 0 --random_matvec_count 100
