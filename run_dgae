@@ -14,6 +14,9 @@
 -f 1. \ frequency
 --set-synthesize-data \ synthesize data
 -C .25 \ CFL number
+--add_noise 0.05\ to (5%) of max misfit gaussian noise to data
+--write_opt_seismogram \ to write the receivers signals after optimization
+--write_init_guess_seismo false \ to write initial guess signals in the receivers  
 --final-map-filename map1_0_l2 \ name of final map file
 --resv_rows 33 \ number of receiver rows and columns
 --misfit_cost_factor 1.e8 \ this is to magnify the effect of receiver
@@ -24,6 +27,7 @@
 --matvec-file-prefix matvec \ prefix (file/directory) to add to matvec samples names
 --random_matvec_offset 0 \ offset in numbering of the generated matvecs
 --random_matvec_count 100 \ number of matvec samples
+
 
 # run inverse problem
 ./dgea_uqbox -n 10 -c 20 -O 1. -t 1 -b 1 -a 2 -M data --target_anomaly target_l2 -l 2 -T 4. -S 10 -f 1. --set-synthesize-data -C .25 --final-map-filename map1_0_l2 --resv_rows 33 --misfit_cost_factor 1.e8
@@ -36,3 +40,6 @@
 
 # to generate matvec vectors
 ./dgea_uqbox -l4 -M data --target_anomaly target_anom -T 4 -C 0.25 --initial-map-filename map1_4 --set-synthesize-data --matvec-file-prefix matvec --random_matvec_offset 0 --random_matvec_count 100
+
+# to generate prior covariance matrix based on low-rank Lancoz solve
+./dgea_uqbox --set-prior-variance-lanczos -z 200  --resv_rows 33 -t 1 -b .0001 -a .001 -M data --target_anomaly target_anomaly_l5 -l 5 -S 2000
