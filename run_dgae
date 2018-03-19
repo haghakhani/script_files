@@ -43,3 +43,6 @@
 
 # to generate prior covariance matrix based on low-rank Lancoz solve
 ./dgea_uqbox --set-prior-variance-lanczos -z 200  --resv_rows 33 -t 1 -b .0001 -a .001 -M data --target_anomaly target_anomaly_l5 -l 5 -S 2000
+
+# to run mcmc test
+mpirun -np 64 ./dgea_uqbox -t 1 -b 1 -a 2 -M data --target_anomaly target_l3 -l 3 -T 4 -C 0.25 --set-synthesize-data -S 1000 -f 1. -O 1 --initial-map-filename map1_1_l3 -z 75 --eigenvec-file-prefix eigenvecs/ --mcmc-file-prefix mcmc/ --mcmc 10 --set-disable-post-variance
