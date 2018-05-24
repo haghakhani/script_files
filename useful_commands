@@ -1,0 +1,7 @@
+# some useful commands for processing the files
+
+# wc -l <qoi_$j shows the number of lines in qoi_$j
+for i in `seq 0 9`;  do  cd chain$i;  echo $i;  for j in `seq 0 8`;    do  echo $j;    wc -l <qoi_$j;    done;  cd ../;  done
+
+# grep some expression and then use awk to take out the desired column
+for i in `seq 0 9`;  do  cd chain$i;  for j in `seq 0 8`;    do  cat uqbox.*.out |grep "qoi\[${j}\]"|awk -F' ' '{print $6}'>qoi_$j;    done;  cd ../;  done
