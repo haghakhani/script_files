@@ -5,3 +5,6 @@ for i in `seq 0 9`;  do  cd chain$i;  echo $i;  for j in `seq 0 8`;    do  echo 
 
 # grep some expression and then use awk to take out the desired column
 for i in `seq 0 9`;  do  cd chain$i;  for j in `seq 0 8`;    do  cat uqbox.*.out |grep "qoi\[${j}\]"|awk -F' ' '{print $6}'>qoi_$j;    done;  cd ../;  done
+
+# combine many columnwise files with " "  as deliminator and pipe then in a new columnwise file 
+paste -d " "  qoi_[0-9]* | column -t>qoi
