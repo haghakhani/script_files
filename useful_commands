@@ -8,3 +8,7 @@ for i in `seq 0 9`;  do  cd chain$i;  for j in `seq 0 8`;    do  cat uqbox.*.out
 
 # combine many columnwise files with " "  as deliminator and pipe then in a new columnwise file 
 paste -d " "  qoi_[0-9]* | column -t>qoi
+for i in `seq 0 9`;  do  cd chain$i;  paste -d " "  qoi_[0-9]* | column -t>qoi;  cd ../;  done
+
+# start running chains once we have dgea_uqbox  eigenvecs  map1_1_l3  run_script  target_l3 in the folder
+for i in `seq 0 9`;  do  mkdir chain$i;  cp map1_1_l3 target_l3 run_script dgea_uqbox chain$i;  cd chain$i;  sbatch run_script $i;  cd ../;  done
