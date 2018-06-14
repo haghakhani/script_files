@@ -83,5 +83,6 @@ kpsewhich -var-value TEXMFHOME
 # to see where a pckage has been install
 kpsewhich <package.sty>
 
-
+#convert multiple png files to a gif file
+convert -delay 20 -loop 0 *.png non.gif
 
