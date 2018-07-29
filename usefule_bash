@@ -86,3 +86,7 @@ kpsewhich <package.sty>
 #convert multiple png files to a gif file
 convert -delay 20 -loop 0 *.png non.gif
 
+#trim a picture and take out the background
+convert input.png -trim output.png
+pdfcrop [options] <input[.pdf]> [output file] 
+
