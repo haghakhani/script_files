@@ -12,3 +12,5 @@ for i in `seq 0 9`;  do  cd chain$i;  paste -d " "  qoi_[0-9]* | column -t>qoi; 
 
 # start running chains once we have dgea_uqbox  eigenvecs  map1_1_l3  run_script  target_l3 in the folder
 for i in `seq 0 9`;  do  mkdir chain$i;  cp map1_1_l3 target_l3 run_script dgea_uqbox chain$i;  cd chain$i;  sbatch run_script $i;  cd ../;  done
+
+cdir=$PWD && cd ~/old_builds/build/dgea_trilinos_dbg/ && make -j8 && make install && cd $cdir && cp ~/old_builds/build/dgea_trilinos_dbg/local/bin/dgea_uqbox .
