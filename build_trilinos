@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+EXTRA_ARGS=$@
+
+TRILINOS_SRC_DIR=<src_dir>
+TRILINOS_BLD_DIR=<build_dir>
+
+cmake \
+ -DTPL_ENABLE_MPI=ON \
+ -DMPI_BASE_DIR=/usr/bin \
+ -DTrilinos_ENABLE_ALL_PACKAGES=ON \
+ -DCMAKE_INSTALL_PREFIX=$TRILINOS_BLD_DIR \
+ $EXTRA_ARGS \
+ $TRILINOS_SRC_DIR 
