@@ -1,5 +1,10 @@
 #!/bin/bash 
 
+# installed with the following arguments 
+#./build_trilinos -DTPL_ENABLE_Netcdf=OFF -DTPL_ENABLE_X11=OFF
+# path to MPI folder has to be adjusted e.g.
+# -DMPI_BASE_DIR=/home/hossein/anaconda3/bin 
+
 EXTRA_ARGS=$@
 
 TRILINOS_SRC_DIR=<src_dir>
@@ -12,3 +17,6 @@ cmake \
  -DCMAKE_INSTALL_PREFIX=$TRILINOS_BLD_DIR \
  $EXTRA_ARGS \
  $TRILINOS_SRC_DIR 
+
+
+ 
