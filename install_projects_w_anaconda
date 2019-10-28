@@ -1,8 +1,31 @@
 #!/bin/bash
-#this version is w/ anaconda and complete TRILINOS including teuchos
+#this version is w/ anaconda and complete TRILINOS including teuchos 
 
-mkdir build
-mkdir build/libsc build/p4est build/mangll build/maoi build/dgea
+NPROC=16
+
+if [ ! -d build ]; then 
+  mkdir build
+fi
+
+if [ ! -d build/libsc ]; then 
+  mkdir build/libsc 
+fi 
+
+if [ ! -d build/p4est ]; then 
+  mkdir build/p4est 
+fi 
+
+if [ ! -d build/mangll ]; then 
+  mkdir build/mangll  
+fi 
+
+if [ ! -d build/maoi ]; then 
+  mkdir build/maoi   
+fi 
+
+if [ ! -d build/dgea ]; then 
+  mkdir build/dgea 
+fi
 
 SRC=$(pwd)
 BLD=$SRC/build
@@ -22,7 +45,7 @@ export F77=mpif77
 #export LIBS="-lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread "
 
 # this is reuired if it's not already defined 
-TRILINOS_DIR=/home/hossein/codes/builds/trilinos/
+TRILINOS_DIR=/home/hossein/mcmc_project/build/trilinos/
 
 # clonning from the source
 git clone -b works_w_maoi git@gitlab.com:haghakhani/dgea.git
@@ -46,7 +69,7 @@ echo "==============================================="
 echo ""
 cd $BLD/libsc
 $SRC/libsc/configure --enable-mpi\
-    && make -j4 && make install
+    && make -j$NPROC && make install
 
 
 # installing p4est
@@ -57,7 +80,7 @@ echo "==============================================="
 echo ""
 cd $BLD/p4est
 $SRC/p4est/configure --enable-mpi --with-sc=$SC\
-    && make -j4 && make install
+    && make -j$NPROC && make install
 
 # installing mangll
 echo ""
@@ -68,7 +91,7 @@ echo ""
 cd $BLD/mangll
 $SRC/mangll/configure \
     --enable-mpi --with-sc=$SC --with-p4est=$P4EST\
-    && make -j4 && make install
+    && make -j$NPROC && make install
 
 # installing maoi
 echo ""
@@ -77,13 +100,13 @@ echo "-------------- installing maoi ----------------"
 echo "==============================================="
 echo ""
 cd $BLD/maoi
-export CFLAGS="-I${TRILINOS_DIR}/include $CFLAGS"
-export CXXFLAGS="-I${TRILINOS_DIR}/include $CXXFLAGS"
+export CFLAGS="-I${TRILINOS_DIR}/include $CFLAGS -fopenmp"
+export CXXFLAGS="-I${TRILINOS_DIR}/include $CXXFLAGS -fopenmp"
 export LDFLAGS="-L${TRILINOS_DIR}/lib -L/home/hossein/anaconda3/lib"
-export LIBS="-lml -lepetra -lmpicxx -lteuchoscomm -lteuchosnumerics -lteuchosparameterlist -lteuchoscore -lkokkoscore"
+export LIBS="-lml -lepetra -lmpi_cxx -lteuchoscomm -lteuchosnumerics -lteuchosparameterlist -lteuchoscore -lkokkoscore"
 $SRC/maoi/configure --enable-mpi\
     --with-sc=$SC --with-p4est=$P4EST --with-trilinos=$TRILINOS_DIR\
-    && make -j4 && make install 
+    && make -j$NPROC && make install 
 
 # installing dgea
 echo ""
@@ -98,4 +121,4 @@ export LIBS="$LIBS -lzoltan -lamesos -llapack -lstdc++ -lifpack -laztecoo -lepet
 $SRC/dgea/configure --enable-mpi\
     --with-sc=$SC --with-p4est=$P4EST --with-mangll=$MANGLL\
     --with-maoi=$MAOI --with-trilinos=$TRILINOS_DIR\
-    && make -j4 && make install
+    && make -j$NPROC && make install
