@@ -1,0 +1,15 @@
+installing cuda:
+1) driver 340.107 https://www.nvidia.com/Download/driverResults.aspx/135161/en-us
+2) download cuda 6.5 https://developer.nvidia.com/cuda-toolkit-65
+3) sh cuda_6.5.14_linux_64.run -extract=/path-to-dir/Downloads --> extract the packages
+4) install: sudo ./cuda-linux64-rel-6.5.14-18749181.run
+-----------------------------------------
+4) it may ask for InstallUtils.pm
+5) run: sh cuda_6.5.14_linux_64.run --tar mxvf
+6) copy InstallUtils.pm to operl library location e.g /usr/lib/x86_64-linux-gnu/perl/5.26.1
+7) install: sudo ./cuda-linux64-rel-6.5.14-18749181.run
+
+Please make sure that
+ -   PATH includes /usr/local/cuda-6.5/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-6.5/lib64, or, add /usr/local/cuda-6.5/lib64 to /etc/ld.so.conf and run ldconfig as root
+
