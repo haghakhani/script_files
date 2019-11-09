@@ -13,3 +13,18 @@ Please make sure that
  -   PATH includes /usr/local/cuda-6.5/bin
  -   LD_LIBRARY_PATH includes /usr/local/cuda-6.5/lib64, or, add /usr/local/cuda-6.5/lib64 to /etc/ld.so.conf and run ldconfig as root
 
+=========================================
+installing gcc 4.8.5
+1. download the source code from gnu
+2.  cd /<source_root>/gcc-4.8.5/
+ ./contrib/download_prerequisites
+ 
+3. mkdir build && cd build
+4. ../configure \
+ --prefix="/opt/gcc" \
+ --enable-shared --with-system-zlib --enable-threads=posix \
+ --enable-__cxa_atexit --enable-checking --enable-gnu-indirect-function \
+ --enable-languages="c,c++" --disable-bootstrap
+
+ 5. make all 
+ 6. make install
