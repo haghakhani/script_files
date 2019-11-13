@@ -9,6 +9,14 @@ nohup mpirun -np 4 ./titan > foo.out 2> foo.err < /dev/null &
 ```
 for i in `seq 0 63`; do   for j in `seq 0 7`;    do      a=func_var_000$j;      a+=_$i;     cp sample$i/func_var_000$j result/$a;      done; done
 ```
+--------------
+**for loop on ls**
+```
+for dir in $(ls sample*)
+do
+  <some other code>
+done
+```
 -----------
 **to see the directories in a direc.**
 ```
