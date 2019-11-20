@@ -1,0 +1,249 @@
+Related Projects
+Overview of related projects.
+
+Meta Projects
+Use the multiple tools to produce output (as is ScienceBeam itself).
+
+PKP OTS
+Input: Doc (Word) or PDF
+Output: JATS XML
+Scope: References
+Activity: Active
+License: GPL 3.0
+Links:
+
+GitHub
+"The PKP XML Service and meTypeset: a new Word-to-JATS solution" (2015)
+Wiki
+Pandoc
+Input: (m)any markup
+Output: (m)any markup
+Links:
+
+project
+Semantic Extraction Projects
+GROBID (GeneRation Of BIbliographical Data)
+Input: PDF
+Output: TEI XML
+Model: Hiearchical CRF (ML)
+Scope: Full Text
+Language: Java
+Activity: Active
+License: Apache 2.0
+Links:
+
+GitHub
+presentation
+CERMINE (Content ExtRactor and MINEr)
+Input: PDF
+Output: TEI XML
+Model: SVM (ML)
+Scope: Full Text
+Language: Java
+Activity: Active
+License: AGPL 3.0
+Links:
+
+GitHub
+Science Parse V1
+Input: PDF
+Output: JSON
+Model: CRF (ML)
+Scope: Title, Authors, Abstract, References
+Language: Scala / Java
+Activity: Deprecated (but still running, see Science Parse V2)
+License: Apache 2.0
+Links:
+
+GitHub
+Science Parse V2
+Input: PDF
+Output: JSON
+Model: BiLSTM (ML)
+Scope: Title, Authors, References (may be extended in the future)
+Language: Python
+Activity: Active
+License: Apache 2.0
+Links:
+
+GitHub
+ContentMine pdf2xml
+Input: SVG (PDF converted using https://bitbucket.org/petermr/pdf2svg)
+Output: XML
+Model: Rule based?
+Scope: Full Text (focus on Tables?), a number of sub-projects
+Language: Java
+Activity: Active
+License: Apache 2.0
+Links:
+
+Bitbucket
+OCR++
+Input: PDF
+Output: TEI XML
+Model: CRF (ML)
+Scope: Full Text
+Language: Python
+Activity: ~2017
+License:
+Links:
+
+GitHub
+"OCR++: A Robust Framework For Information Extraction from Scholarly Articles" (2016)
+project
+PdfAct
+Input: PDF
+Output: XML
+Model:
+Scope: Paragraph?
+Language: Java
+Activity: Active
+License: Apache 2.0
+Links:
+
+GitHub icecite
+pdf-text-extraction-benchmark
+meTypeset
+Input: Word .docx
+Output: JATS XML (TEI as intermediate format)
+Model: Rule based?
+Scope: Full Text?
+Language: XSLT
+Activity: Active
+License: GPL 2.0
+Links:
+
+GitHub
+im2markup
+Input: PDF
+Output: LaTeX
+Model: Computer Vision
+Scope: Formulas
+Language: Python
+Activity: 2016
+License: Apache 2.0
+Links:
+
+GitHub
+project
+preprint
+LA-PDFText
+Input: PDF
+Output: JATS? XML
+Model: Rule based
+Scope: Full Text
+Language: Java
+Activity:
+License: GPL 3.0
+Links:
+
+GitHub
+"Layout-aware text extraction from full-text PDF of scientific articles" (2012)
+PDFX
+Input: PDF
+Output: JATS XML
+Model:
+Scope: Full Text
+Activity:
+License:
+Links:
+
+"PDFX: Fully-automated PDF-to-XML Conversion of Scientific Literature" (2013)
+ParsCit
+Input: PDF
+Output: JATS XML
+Model: CRF
+Scope: References
+Activity: ~2013
+License: LGPL 3.0
+Links:
+
+GitHub
+"Logical Structure Recovery in Scholarly Articles with Rich Document Features" (2010) pre-print
+Crossref pdf-extract
+Input: PDF
+Output: XML
+Model:
+Scope: References, Regions
+Activity: ~2015 (retired)
+License: MIT
+Links:
+
+GitHub
+Labs post
+Arxiv Vanity / Engrafo
+Input: LaTeX
+Output: HTML
+Model:
+Scope:
+Activity: Active
+License: Apache 2.0
+Links:
+
+Arxiv Vanity
+Engrafo
+Low-level PDF Extraction
+pdf2svg
+xpdf
+pdftohtml
+pdf2htmlEX
+pdfminer
+PyPDF2
+pdfrw
+ContentMine pdf2svg GitHub
+docsplit
+pypdf2xml
+pdf2json
+node-pdfreader
+mupdf
+pdfbox
+inkscape
+OCR
+"Recursive Recurrent Nets with Attention Modeling for OCR in the Wild" (2016)) (Attention-OCR)
+"Visually Identifying Rank" (2016)
+tesseract
+pytesseract
+jocr
+ocropy
+kraken
+Transkribus
+Keras example
+Resources
+Semantic Extraction Resources
+"Semi-automatic Metadata Extraction from Scientific Journal Article for Full-text XML Conversion" (2016)
+"Machine Learning Approach upon Text from Varied Publishing Formats" (2016)
+"A Comparison of Two Unsupervised Table Recognition Methods from Digital Scientific Articles" (2014)
+"From Legacy Documents to XML: A Conversion Framework" (2005)
+"Automating XML Markup using Machine Learning Techniques" (2004)
+"Information Extraction and Automatic Markup for XML documents" (2003)
+"Automatic Document Metadata Extraction using Support Vector Machines" (2003)
+"Machine Learning for Information Extraction from XML marked-up text on the Semantic Web" (2001)
+"Converting PDF to XML" - Mark D. Anderson (2008)
+Reading Order Resources
+"Machine Learning for Reading Order Detection in Document Image Understanding" (2007) pdf
+"The Significance of Reading Order in Document Recognition and its Evaluation" (2013) pdf
+"Machine Learning for Document Structure Recognition" (2011) researchgate
+"A Machine Learning Approach To Sentence Ordering For Multi-Document Summarization and its Evaluation" (2005) pdf
+"Unsupervised document structure analysis of digital scientific articles" (2014) researchgate
+"Zhang-Shasha: Tree edit distance in Python"
+Object Detection / Image Segmentation
+"SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation" (2017)
+"A Brief History of CNNs in Image Segmentation: From R-CNN to Mask R-CNN" (2017)
+"Semi and Weakly Supervised Semantic Segmentation Using Generative Adversarial Network" (2017)
+"Deep learning for satellite imagery via image segmentation" (2017)
+"Image-to-Image Translation with Conditional Adversarial Networks" (2016) GitHub
+"G-RMI Object Detection 2nd ImageNet and COCO Visual Recognition Challenges Joint Workshop ECCV 2016, Amsterdam" (2016) presentation
+"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks" (2015)
+"U-Net: Convolutional Networks for Biomedical Image Segmentation" (2015)
+"Image Segmentation using deconvolution layer in Tensorflow"
+"Tensorflow Unet"
+More
+JATS Tools Wiki
+"Jailbreaking the PDF - 2; Technical aspects (Glyph processing)" (2013)
+"Reducing costs and expanding XML submissions with PDF to JATS conversion" (2012)
+"An Error Analysis Tool for Natural Language Processing and Applied Machine Learning" (2001)
+ Pages 2
+Find a Page…
+Home
+Related Projects
+Clone this wiki locally
