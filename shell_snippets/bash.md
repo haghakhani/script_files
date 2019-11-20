@@ -166,3 +166,6 @@ control a service like elasticsearch or apache:
 **crontab -e** to edit the file that sets the jobs that you want to run exactly at some time in "m h dom mon dow command"
 
 -------------------
+**to organize a folder of pdfs**
+
+`./organize-ebooks.sh -v -km -ocr=true -owi -o=<outputfolder> -ofu=<uncertain_folder> -ofp=<pamphlet_folder> <input_folder>`
