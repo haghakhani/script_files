@@ -167,5 +167,7 @@ control a service like elasticsearch or apache:
 
 -------------------
 **to organize a folder of pdfs**
-
-`./organize-ebooks.sh -v -km -ocr=true -owi -o=<outputfolder> -ofu=<uncertain_folder> -ofp=<pamphlet_folder> <input_folder>`
+we can use pamphlet-max-filesize-kb=20 --pamphlet-max-pdf-pages flags to ignore the files that we think are not ebooks
+```
+./organize-ebooks.sh -v -km -ocr=true -owi -o=<outputfolder> -ofu=<uncertain_folder> -ofp=<pamphlet_folder> <input_folder> --pamphlet-max-filesize-kb=20 --pamphlet-max-pdf-pages=2
+```
