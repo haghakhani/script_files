@@ -8,6 +8,21 @@
 # path to MPI folder has to be adjusted e.g.
 # -DMPI_BASE_DIR=/home/hossein/anaconda3/bin 
 
+# the package needed for the installation
+# sudo apt install -y openmpi-bin openmpi-dev libopenmpi-dev openmpi-common libopenmpi3
+# sudo apt install -y cmake
+# sudo apt install -y libopenblas-base libopenblas-dev liblapack-dev
+# sudo apt install -y libcholmod3 liblapack3 liblapacke-dev libscalapack-openmpi-dev 
+# sudo apt install -y libboost1.67-all-dev libboost1.67-dev  libboost1.67-tools-dev
+# sudo apt install -y libnetcdf-c++4-1 libnetcdf-c++4-dev libnetcdf-dev libnetcdf-mpi-13 libnetcdf-mpi-dev libnetcdf13  libnetcdff-dev libnetcdff6 libnetcdf-dev python-netcdf4
+# sudo apt install -y doxygen doxygen-gui doxygen-latex doxygen-gui doxypy
+# sudo apt install -y swig swig3.0
+
+# the coomand was used
+# ./build_trilinos.sh -DBUILD_SHARED_LIBS=ON -DTrilinos_ENABLE_PyTrilinos=ON -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3  
+# -DTPL_ENABLE_Matio=OFF -DPyTrilinos_DOCSTRINGS=OFF -DPyTrilinos_ENABLE_Isorropia=OFF
+
+
 EXTRA_ARGS=$@
 
 TRILINOS_SRC_DIR=<src_dir>
