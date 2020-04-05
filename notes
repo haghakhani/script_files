@@ -1,0 +1,4 @@
+dark them eclipse has 2 problems which will be fixed as follow:
+
+  1) occurrences: Open Window>Preferences>General>Editors>Text Editors>Annotations change C/C++ ccurrences color
+  2) inactive codes: Open Window>Preferences>C/C++>Editor>change inactive code highlight color
