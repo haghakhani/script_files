@@ -172,10 +172,10 @@ we can use pamphlet-max-filesize-kb=20 --pamphlet-max-pdf-pages flags to ignore 
 ./organize-ebooks.sh -v -km -ocr=true -owi -o=<outputfolder> -ofu=<uncertain_folder> -ofp=<pamphlet_folder> <input_folder> --pamphlet-max-filesize-kb=20 --pamphlet-max-pdf-pages=2
 ```
 -------------------
-**lsusb to show the connected usb devices **
+**lsusb to show the connected usb devices**
 
 -------------------
-**somtimes it's needed to realize the connected wifi device **
+**somtimes it's needed to realize the connected wifi device**
 ```
 sudo usb_modeswitch -KW -v 0bda -p 1a2b
 ```
