@@ -13,4 +13,6 @@
   5) [Templatized C++ Command Line Parser](https://sourceforge.net/projects/tclap/)
   6) [gflags (formerly Google Commandline Flags)](http://gflags.github.io/gflags/)
   7) [klib](http://attractivechaos.github.io/klib/#About)
-  8) [Glib](https://gitlab.gnome.org/GNOME/glib)
+  8) [Glib](https://gitlab.gnome.org/GNOME/glib)--> this library is a massive library with many other options including design interface
+  
+  the first option seems the best
