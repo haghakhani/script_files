@@ -14,5 +14,13 @@
   6) [gflags (formerly Google Commandline Flags)](http://gflags.github.io/gflags/)
   7) [klib](http://attractivechaos.github.io/klib/#About)
   8) [Glib](https://gitlab.gnome.org/GNOME/glib)--> this library is a massive library with many other options including design interface
+  9) [clipp](https://github.com/muellan/clipp)
   
   the first option seems the best
+
+a better appraoch is to use some parser generators for the input arguments such as using:
+1) [GNU Gengetopt](https://www.gnu.org/software/gengetopt/gengetopt.html)
+2) [Autogen](https://www.gnu.org/software/autogen/manual/html_node/autogen.html#Top) and its related section [AutoOpt](https://www.gnu.org/software/autogen/manual/html_node/Features.html#Features)
+3) [genparse](https://sourceforge.net/projects/genparse/files/) or [man page](http://manpages.ubuntu.com/manpages/focal/man1/genparse.1.html)
+
+a comparison between them can be found [here](https://www.gnu.org/software/autogen/compare.html)
