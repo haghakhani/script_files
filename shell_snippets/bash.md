@@ -180,3 +180,51 @@ we can use pamphlet-max-filesize-kb=20 --pamphlet-max-pdf-pages flags to ignore 
 sudo usb_modeswitch -KW -v 0bda -p 1a2b
 ```
 0bda and 1a2b aredetermined from the output of lsusb
+
+-------------------
+**getopt example
+
+#!/bin/bash -e
+
+ARGUMENT_LIST=(
+    "arg-one"
+    "arg-two"
+    "arg-three"
+)
+
+
+# read arguments
+opts=$(getopt \
+    --longoptions "$(printf "%s:," "${ARGUMENT_LIST[@]}")" \
+    --name "$(basename "$0")" \
+    --options "" \
+    -- "$@"
+)
+
+eval set --$opts
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --arg-one)
+            argOne=$2
+            shift 2
+            ;;
+
+        --arg-two)
+            argTwo=$2
+            shift 2
+            ;;
+
+        --arg-three)
+            argThree=$2
+            shift 2
+            ;;
+
+        *)
+            break
+            ;;
+    esac
+done
+
+echo $argOne $argTwo $argThree 
+-------------------------------------------
