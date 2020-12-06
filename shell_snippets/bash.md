@@ -182,7 +182,7 @@ sudo usb_modeswitch -KW -v 0bda -p 1a2b
 0bda and 1a2b aredetermined from the output of lsusb
 
 -------------------
-**getopt example
+**getopt example**
 
 ```
 #!/bin/bash -e
