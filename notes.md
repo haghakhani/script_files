@@ -23,3 +23,13 @@ a better appraoch is to use some parser generators for the input arguments such 
 3) [genparse](https://sourceforge.net/projects/genparse/files/) or [man page](http://manpages.ubuntu.com/manpages/focal/man1/genparse.1.html)
 
 a comparison between them can be found [here](https://www.gnu.org/software/autogen/compare.html)
+----------------
+**ssh notes**
+ssh setting I found:
+1. I've already set the password from the laptop for knl so it shouldn't ask for it. it was as easy as copying ~/.ssh/id_rsa.pub from my computer to authorized_key of the ~/.ssh/ in 
+2. we can create a ssh tunnel similar tthe remote servero vnc:
+   ssh -f -N -L 2222:stampede2.tacc.utexas.edu:2222 haghakha@stampede2.tacc.utexas.edu
+3. after creating the tunnel we can use it to transfer the data rsync -auve "ssh -p 2222" api haghakha@localhost:~/
+4. we can also use that tunnel also to ssh ssh -p 2222 haghakha@localhost
+5. the rsync and ssh through th tunnel don't ask the 2ns authen. key by they still nedd the password. I should find a way to remove the password
+--------------
