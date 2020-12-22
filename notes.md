@@ -33,3 +33,23 @@ ssh setting I found:
 4. we can also use that tunnel also to ssh ssh -p 2222 haghakha@localhost
 5. the rsync and ssh through th tunnel don't ask the 2ns authen. key by they still nedd the password. I should find a way to remove the password
 --------------
+
+**bit operation**
+1. using char for bit, very useful for flag 
+```C  
+  #include <limits.h>		/* for CHAR_BIT */
+  
+  #define BITMASK(b) (1 << ((b) % CHAR_BIT))
+  #define BITSLOT(b) ((b) / CHAR_BIT)
+  #define BITSET(a, b) ((a)[BITSLOT(b)] |= BITMASK(b))
+  #define BITCLEAR(a, b) ((a)[BITSLOT(b)] &= ~BITMASK(b))
+  #define BITTEST(a, b) ((a)[BITSLOT(b)] & BITMASK(b))
+  #define BITNSLOTS(nb) ((nb + CHAR_BIT - 1) / CHAR_BIT)   
+``` 
+
+2. useful links:
+    * [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html)
+    * [The Aggregate Magic Algorithms](http://aggregate.org/MAGIC/)
+    * [The bit twidller](https://bits.stephan-brumme.com/)
+    * [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html)
+    * [How do you set, clear, and toggle a single bit?](https://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit)
