@@ -53,3 +53,49 @@ ssh setting I found:
     * [The bit twidller](https://bits.stephan-brumme.com/)
     * [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html)
     * [How do you set, clear, and toggle a single bit?](https://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit)
+    
+ ----------
+**autotools basics**
+1) create the following files:
+  * NEWS
+  * README
+  * AUTHORS
+  * ChangeLog
+2) create configure.ac at project’s root directory. The file must contain, at the very least, the AC_INIT and AC_OUTPUT M4 macros.
+
+      ```make 
+      #the 2 following lines are necessary
+      AC_INIT([tarball_name], [0.01(version_number)], [developer@email.com])
+      AC_OUTPUT
+
+      #ask to create a make file
+      AM_INIT_AUTOMAKE
+
+      # name of output file
+      AC_CONFIG_FILES([Makefile])
+
+      # for c++ programs, makes sure a C++ compiler is available
+      AC_PROG_CXX
+
+      # for c programs, makes sure a C compiler is available
+      AC_PROG_CC
+      
+      # path to one source file in your project, autoconf checks
+      AC_CONFIG_SRCDIR([src.c])
+  ```
+3) sometimes configure.ac is not enough and more things needed to be added for the project, so we should create Makefile.am
+
+  * Makefile.am syntax is very similar to the makefile
+  * Variables ending in _PROGRAMS: codes to be built.
+  * similarly for _SCRIPTS, _DATA, _LIBRARIES
+  * bin_PROGRAMS is installed into the bindir, which is user-configurable during compilation.
+  * if the output is a script then bin_SCRIPTS = bin/MyApp
+  * Automake assumes sources are in src directory, otherwise "subdir-objects" option must be passed:
+    ```make 
+    AUTOMAKE_OPTIONS = foreign subdir-objects
+    ```
+  * any other Makefile rule can be added in Makefile.am and they will be copied verbatim into the generated Makefile
+  
+  
+  
+  
