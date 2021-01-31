@@ -106,6 +106,8 @@ ssh setting I found:
 2. [i-librarian](https://i-librarian.net/compare.php) is a browser based pdf manager. It is not great in extracting metadat for ebooks but it's good for papers. It is more a replacement for mendeley. 
 
 3. [CERMINE](https://github.com/CeON/CERMINE) is good in extracting metadata for papers. It has AI features to look for metadata information in a paper. 
+
+4. [a repository for the same purpose worth checking](https://github.com/na--/ebook-tools)
   
   
   
