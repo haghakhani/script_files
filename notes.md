@@ -82,7 +82,8 @@ ssh setting I found:
       
       # path to one source file in your project, autoconf checks
       AC_CONFIG_SRCDIR([src.c])
-  ```
+      ```
+  
 3) sometimes configure.ac is not enough and more things needed to be added for the project, so we should create Makefile.am
 
   * Makefile.am syntax is very similar to the makefile
@@ -91,10 +92,20 @@ ssh setting I found:
   * bin_PROGRAMS is installed into the bindir, which is user-configurable during compilation.
   * if the output is a script then bin_SCRIPTS = bin/MyApp
   * Automake assumes sources are in src directory, otherwise "subdir-objects" option must be passed:
+  
     ```make 
     AUTOMAKE_OPTIONS = foreign subdir-objects
     ```
   * any other Makefile rule can be added in Makefile.am and they will be copied verbatim into the generated Makefile
+  
+   ----------
+**extracting metdadata and organizing pdfs**
+
+1. [calibre](https://calibre-ebook.com/) is very good in extracting metadata and organizing E-book. It also has command line interface([CLI](https://manual.calibre-ebook.com/index.html#the-command-line-interface)) and a [python API](https://pypi.org/project/capybre/). It has a very good function that fetchs data from google or amazon [fetch-ebook-metadata](https://manual.calibre-ebook.com/generated/en/fetch-ebook-metadata.html)
+
+2. [i-librarian](https://i-librarian.net/compare.php) is a browser based pdf manager. It is not great in extracting metadat for ebooks but it's good for papers. It is more a replacement for mendeley. 
+
+3. [CERMINE](https://github.com/CeON/CERMINE) is good in extracting metadata for papers. It has AI features to look for metadata information in a paper. 
   
   
   
